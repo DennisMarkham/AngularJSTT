@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <style> 
+
+  div
+  {
+  background-color: lightgray;
+  width: 50%;
+  margin-left: 20px;
+  padding:20px;
+  border-radius: 20px;
+  }
+
+  #submit {
+    margin: 5px;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+  body{
+  background: url(background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 1700px)
+{
+  body
+  {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+  </style>
+
+</head>
+
+<!-- WHY IS MY PAGE LOPSIDED
+LOOK UP INSTRUCTIONS FOR DEPLOYMENT -->
+<body onLoad = "populate()" ng-app="myApp" ng-controller = "myCtrl" ng-init = "[Thomas = {name: 'Thomas',
+  dest: 'New York',
+  first: '05:00',
+  freq: 30,
+},Duncan = {
+  name: 'Duncan',
+  dest: 'Boston',
+  first: '06:00',
+  freq: 45,
+}]">
+
+<table>
+  <tr>
+    <th>Train Name</th>
+    <th>Destination</th>
+    <th>Frequency</th>
+    <th>Minutes Away</th>
+    <th>Next Arrival</th>
+  </tr>
+  
+</table>
+
+
+
+<hr>
+
+<div>
+ <form>
+  Train Name: <input type="text" id="name">
+  <br>
+  <br>
+  Destination: <input type = "text" id="dest">
+  <br>
+  <br>
+  First Train Time (HH:mm - military time): <input type="text" id="firstTT">
+  <br>
+  <br>
+  Frequency: Min <input type = "text" id = "freq">
+  <br>
+  <br>
+  <input type="submit" onClick = "{{populate()}}" value = "Submit" id ="submit" data-toggle="tool-tip" title="add train">
+
+
+ </form>
+</div>
+
+<!-- <form>
+   <submit>Sort by</submit>
+  <select>
+    <option>Train Name</option>
+    <option>Destination</option>
+    <option>Minutes Away</option>
+  </select>
+
+</form> -->
+
+     <script>
+     	var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.populate = function() {
+    console.log(this.id);
+  };
+});
+    </script>
+
+
+  </body>
+  </html>
